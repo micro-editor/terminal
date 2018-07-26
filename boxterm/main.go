@@ -4,12 +4,13 @@ import (
 	"bufio"
 	"fmt"
 	"io"
+
+	termbox "github.com/nsf/termbox-go"
 	//"math/rand"
 	"os"
 	"os/exec"
 
-	"github.com/james4k/termbox-go-noinput"
-	"j4k.co/terminal"
+	"github.com/zyedidia/terminal"
 )
 
 func filterESC(r io.Reader) io.Reader {
@@ -100,7 +101,7 @@ func main() {
 	// might be worth looking more into.
 	var state terminal.State
 	cmd := exec.Command(os.Getenv("SHELL"), "-i")
-	term, pty, err := terminal.Start(&state, cmd)
+	term, pty, err := terminal.Start(&state, cmd, nil)
 	if err != nil {
 		panic(err)
 	}

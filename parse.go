@@ -55,7 +55,7 @@ func (t *State) parseEsc(c rune) {
 		'+': // set quaternary charset G3 (ignored)
 	case 'D': // IND - linefeed
 		if t.cur.y == t.bottom {
-			t.scrollUp(t.top, 1)
+			t.ScrollUp(t.top, 1)
 		} else {
 			t.moveTo(t.cur.x, t.cur.y+1)
 		}
@@ -65,7 +65,7 @@ func (t *State) parseEsc(c rune) {
 		t.tabs[t.cur.x] = true
 	case 'M': // RI - reverse index
 		if t.cur.y == t.top {
-			t.scrollDown(t.top, 1)
+			t.ScrollDown(t.top, 1)
 		} else {
 			t.moveTo(t.cur.x, t.cur.y-1)
 		}

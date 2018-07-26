@@ -214,7 +214,7 @@ func (t *State) newline(firstCol bool) {
 	if y == t.bottom {
 		cur := t.cur
 		t.cur = t.defaultCursor()
-		t.scrollUp(t.top, 1)
+		t.ScrollUp(t.top, 1)
 		t.cur = cur
 	} else {
 		y++
@@ -442,7 +442,7 @@ func between(val, min, max int) bool {
 	return true
 }
 
-func (t *State) scrollDown(orig, n int) {
+func (t *State) ScrollDown(orig, n int) {
 	n = clamp(n, 0, t.bottom-orig+1)
 	t.clear(0, t.bottom-n+1, t.cols-1, t.bottom)
 	t.changed |= ChangedScreen
@@ -455,7 +455,7 @@ func (t *State) scrollDown(orig, n int) {
 	// TODO: selection scroll
 }
 
-func (t *State) scrollUp(orig, n int) {
+func (t *State) ScrollUp(orig, n int) {
 	n = clamp(n, 0, t.bottom-orig+1)
 	t.clear(0, orig, t.cols-1, orig+n-1)
 	t.changed |= ChangedScreen
@@ -676,14 +676,14 @@ func (t *State) insertBlankLines(n int) {
 	if t.cur.y < t.top || t.cur.y > t.bottom {
 		return
 	}
-	t.scrollDown(t.cur.y, n)
+	t.ScrollDown(t.cur.y, n)
 }
 
 func (t *State) deleteLines(n int) {
 	if t.cur.y < t.top || t.cur.y > t.bottom {
 		return
 	}
-	t.scrollUp(t.cur.y, n)
+	t.ScrollUp(t.cur.y, n)
 }
 
 func (t *State) deleteChars(n int) {

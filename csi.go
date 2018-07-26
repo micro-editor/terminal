@@ -138,9 +138,9 @@ func (t *State) handleCSI() {
 			t.clear(0, t.cur.y, t.cols-1, t.cur.y)
 		}
 	case 'S': // SU - scroll <n> lines up
-		t.scrollUp(t.top, c.arg(0, 1))
+		t.ScrollUp(t.top, c.arg(0, 1))
 	case 'T': // SD - scroll <n> lines down
-		t.scrollDown(t.top, c.arg(0, 1))
+		t.ScrollDown(t.top, c.arg(0, 1))
 	case 'L': // IL - insert <n> blank lines
 		t.insertBlankLines(c.arg(0, 1))
 	case 'l': // RM - reset mode
