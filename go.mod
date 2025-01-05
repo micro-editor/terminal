@@ -1,4 +1,4 @@
-module github.com/zyedidia/terminal
+module github.com/micro-editor/terminal
 
 go 1.19
 
