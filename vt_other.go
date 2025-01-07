@@ -1,5 +1,4 @@
 //go:build plan9 || nacl || windows
-// +build plan9 nacl windows
 
 package terminal
 
